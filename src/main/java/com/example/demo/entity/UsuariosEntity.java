@@ -1,19 +1,22 @@
 package com.example.demo.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Table(name = "usuario")
 
-public class Usuarios {
+public class UsuariosEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //private String identificacion;
+    private int id_usuario;
+    private String identificacion;
     private String nombre;
     private String genero;
     private int edad;

@@ -1,36 +1,40 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.Usuarios;
+import com.example.demo.entity.UsuariosEntity;
 import com.example.demo.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("usuarios")
+
 public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @GetMapping
-    public List<Usuarios> listar(){
-        return usuarioService.listar();
+    @GetMapping("/api/usuarios")
+    public List<UsuariosEntity> listar(){
+        return usuarioService.listarUsuarios();
     }
 
-    @PostMapping
-    public Usuarios insertar(@RequestBody Usuarios usuarios){
-        return usuarioService.insertar(usuarios);
+
+    @PostMapping("/api/usuarios")
+    public void insertar(@RequestBody UsuariosEntity usuarios){
+      usuarioService.insertarUsuario(usuarios);
     }
 
-    @PutMapping
-    public Usuarios actualizar(@RequestBody Usuarios usuarios){
-        return usuarioService.actualizar(usuarios);
+    @PutMapping("/api/usuarios")
+    public UsuariosEntity actualizar(@RequestBody int id){
+        return usuarioService.actualizarUsuarios(id);
     }
 
     @DeleteMapping
-    public void eliminar(@RequestBody Usuarios usuarios){
-         usuarioService.eliminar(usuarios);
+    public void eliminar(@RequestBody UsuariosEntity usuarios){
+         usuarioService.eliminarUsuario(usuarios);
     }
+
 
 }
