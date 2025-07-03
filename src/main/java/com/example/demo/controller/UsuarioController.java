@@ -13,22 +13,22 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @GetMapping
+    @GetMapping("/obtener")
     public List<Usuarios> listar(){
         return usuarioService.listar();
     }
 
-    @PostMapping
+    @PostMapping("/crear")
     public Usuarios insertar(@RequestBody Usuarios usuarios){
         return usuarioService.insertar(usuarios);
     }
 
-    @PutMapping
+    @PutMapping("/actualizar")
     public Usuarios actualizar(@RequestBody Usuarios usuarios){
         return usuarioService.actualizar(usuarios);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/borrar")
     public void eliminar(@RequestBody Usuarios usuarios){
          usuarioService.eliminar(usuarios);
     }
