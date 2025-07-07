@@ -9,7 +9,7 @@ public interface IUsuarioService  {
 
     public void insertarUsuario(UsuariosEntity usuarios);
 
-    public void eliminarUsuario(UsuariosEntity usuarios);
+    public void eliminarUsuario(int id);
 
-    UsuariosEntity actualizarUsuarios(int id);
+    public void actualizarUsuarios(int id,UsuariosEntity usuariosEntity);
 }

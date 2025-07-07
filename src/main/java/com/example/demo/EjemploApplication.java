@@ -3,6 +3,7 @@ package com.example.demo;
 import com.example.demo.entity.UsuariosEntity;
 import com.example.demo.services.IUsuarioService;
 import com.example.demo.services.UsuarioService;
+import org.hibernate.engine.spi.EntityUniqueKey;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -71,11 +72,12 @@ public class EjemploApplication implements CommandLineRunner {
 				usuarioService.insertarUsuario(usuario);
 				System.out.println("El usuario ha sido agregado"+nl);
 			}
-			case 3->{
+			/*case 3->{
 				System.out.println("************Actualizar usuarios***************");
 				System.out.println("Identificacion");
 				var id= Integer.parseInt(consola.nextLine());
-				UsuariosEntity usuario = usuarioService.actualizarUsuarios(id);
+				var usu=
+				UsuariosEntity usuario = usuarioService.actualizarUsuarios(id,);
 				if(usuario!= null){
 					System.out.println("Nombre");
 					var nombre= consola.nextLine();
@@ -90,7 +92,7 @@ public class EjemploApplication implements CommandLineRunner {
 					usuario.setGenero(genero);
 					usuario.setEdad(edad);
 					usuario.setCiudad(ciudad);
-					usuarioService.actualizarUsuarios(id);
+					usuarioService.insertarUsuario(usuario);
 					System.out.println("Usuario modificado   "+ usuario+nl);
 				}
 			else System.out.println("usuario no encontrado"+nl);
@@ -105,7 +107,7 @@ public class EjemploApplication implements CommandLineRunner {
 						System.out.println("Usuario eliminado "+nl+ usuario+ nl);
 					}else
 						System.out.println("Usuario no encontrado"+ usuario+nl);
-				}
+				}*/
 				case  5-> {
 					System.out.println("Hasta pronto "+ nl+nl);
 					salir=true;

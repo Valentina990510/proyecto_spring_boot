@@ -22,20 +22,19 @@ public class UsuarioController {
         return usuarioService.listarUsuarios();
     }
 
-
     @PostMapping("/api/usuarios")
     public void insertar(@RequestBody UsuariosEntity usuarios){
       usuarioService.insertarUsuario(usuarios);
     }
 
-    @PutMapping("/api/usuarios")
-    public UsuariosEntity actualizar(@RequestBody int id){
-        return usuarioService.actualizarUsuarios(id);
+    @PutMapping("/api/usuarios/{id}")
+    public void actualizar(@PathVariable int id, @RequestBody UsuariosEntity usuarios){
+         usuarioService.actualizarUsuarios(id,usuarios);
     }
 
-    @DeleteMapping
-    public void eliminar(@RequestBody UsuariosEntity usuarios){
-         usuarioService.eliminarUsuario(usuarios);
+    @DeleteMapping("/api/usuarios/{id}")
+    public void eliminar(@PathVariable @RequestBody int id){
+         usuarioService.eliminarUsuario(id);
     }
 
 
